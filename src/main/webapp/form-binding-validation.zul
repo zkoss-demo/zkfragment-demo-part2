@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+form-binding-validation.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Mon Jun 12 12:55:08 CST 2017, Created by rudyhuang
+
+Copyright (C) 2017 Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+    <fragment viewModel="@id('vm') @init('org.zkoss.fragment.demo.VM2')" validationMessages="@id('vmsgs')"
+              form="@id('fx') @load(vm) @save(vm, before='submit') @validator(vm.formValidator)"
+              prop1="@bind(fx.prop1)" prop1err="@bind(vmsgs['fkey1'])"
+              prop2="@bind(fx.prop2)" prop2err="@bind(vmsgs['fkey2'])"><![CDATA[
+        <p><input type="text" value="@bind(prop1)"/><span textContent="@load(prop1err)"/></p>
+        <p><input type="text" value="@bind(prop2)"/><span textContent="@load(prop2err)"/></p>
+        <button onclick="@command('submit')">Submit</button>
+    ]]></fragment>
+
+    <label multiline="true">
+        Try typing something.
+        - Textbox 1: should be more than 7 words
+        - Textbox 2: must contain "ZK"
+    </label>
+</zk>

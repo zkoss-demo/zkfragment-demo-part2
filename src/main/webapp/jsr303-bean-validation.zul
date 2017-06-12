@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+jsr303-bean-validation.zul
+
+	Purpose:
+
+	Description:
+
+	History:
+		Mon Jun 12 14:09:17 CST 2017, Created by rudyhuang
+
+Copyright (C) 2017 Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+    <!-- property binding validation -->
+    <fragment viewModel="@id('vm') @init('org.zkoss.fragment.demo.DemoVM')" validationMessages="@id('vmsgs')"
+              prop1="@bind(vm.someBean.prop1) @validator('beanValidator', key='fkey1')"
+              prop1err="@bind(vmsgs['fkey1'])"><![CDATA[
+        <input type="text" value="@bind(prop1)"/>
+        <span textContent="@load(prop1err)"/>
+    ]]></fragment>
+
+    <!-- form binding validation -->
+    <fragment viewModel="@id('vm') @init('org.zkoss.fragment.demo.DemoVM')" validationMessages="@id('vmsgs')"
+              form="@id('fx') @load(vm.someBean) @save(vm.someBean, before='submit') @validator('formBeanValidator', prefix='p_')"
+              prop1="@bind(fx.prop1)"
+              prop1err="@bind(vmsgs['p_prop1'])"><![CDATA[
+        <input type="text" value="@bind(prop1)"/>
+        <span textContent="@load(prop1err)"/>
+        <button onclick="@command('submit')">Submit</button>
+    ]]></fragment>
+
+    <label>
+        Try typing something. (Should be more than 3 characters)
+    </label>
+</zk>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+event-handling.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Mon Jun 12 14:35:04 CST 2017, Created by rudyhuang
+
+Copyright (C) 2017 Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+    <fragment viewModel="@id('vm') @init('org.zkoss.fragment.demo.EventVM')"><![CDATA[
+		<button onclick="@command('cmd1', e=event)">Hit me!</button>
+		<input type="checkbox" onchange="@command('cmd2')"/>
+	]]></fragment>
+</zk>

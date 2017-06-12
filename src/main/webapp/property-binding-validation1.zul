@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+property-binding-validation1.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Mon Jun 12 12:36:54 CST 2017, Created by rudyhuang
+
+Copyright (C) 2017 Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+    <fragment viewModel="@id('vm') @init('org.zkoss.fragment.demo.VM1')" validationMessages="@id('vmsgs')"
+              prop1="@bind(vm.prop1) @validator(vm.validator1)"
+              prop1err="@bind(vmsgs['prop1'])"><![CDATA[
+        <input type="text" value="@bind(prop1)"/>
+        <span textContent="@load(prop1err)"/>
+    ]]></fragment>
+
+    <label>
+        Try typing something. (The empty data will be rejected.)
+    </label>
+</zk>

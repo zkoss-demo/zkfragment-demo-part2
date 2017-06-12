@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+client-side-property-validation.zul
+
+	Purpose:
+		
+	Description:
+		
+	History:
+		Mon Jun 12 14:21:29 CST 2017, Created by rudyhuang
+
+Copyright (C) 2017 Potix Corporation. All Rights Reserved.
+
+-->
+<zk>
+    <fragment viewModel="@id('vm') @init('org.zkoss.fragment.demo.VM1')" prop1="@bind(vm.prop1)"><![CDATA[
+        <input type="text" value="@bind(prop1) @jsvalidator('validation')"/>
+        <span textContent="@load(vmsgs['prop1'])"/>
+        <script type="text/javascript">
+        function validation(val, vmsgs) {
+            var valid = doValidation(val);
+            vmsgs['prop1'] = valid ? '' : 'prop1 error';
+            return valid;
+        }
+
+        function doValidation(val) {
+             return /^-?\d+(?:\.\d+)?$/.test(val);
+        }
+        </script>
+    ]]></fragment>
+
+    <label>
+        Try typing something. (In number format. ex: -7, 999, 3.1415926)
+    </label>
+</zk>
