@@ -6,7 +6,6 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<properties>
 		<zk.version>9.1.0-Eval</zk.version>
-		<commons-io>2.4</commons-io>
 		<maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
 		<packname>-${project.version}-FL-${maven.build.timestamp}</packname>
 	</properties>
@@ -49,12 +48,6 @@
 			<groupId>org.zkoss.zk</groupId>
 			<artifactId>zkmax</artifactId>
 			<version>${zk.version}</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>commons-io</groupId>
-			<artifactId>commons-io</artifactId>
-			<version>${commons-io}</version>
 		</dependency>
 		<!--  for zkbind jsr 303 -->
 		<dependency>
